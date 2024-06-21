@@ -12,8 +12,7 @@ const WeatherDashboard = () => {
 
   const fetchWeatherData = async () => {
     try {
-      // console.log(`https://weather-api-app-ruby-ca24058ecac9.herokuapp.com/api/v1/weathers?location=` + location)
-      const response = await axios.get(`http://127.0.0.1:3001/api/v1/weathers?location=` + location);
+      const response = await axios.get(`https://weather-api-app-ruby-ca24058ecac9.herokuapp.com/api/v1/weathers?location=` + location);
       setWeather(response.data);
       setHistories(null)
     } catch (error) {
@@ -25,8 +24,8 @@ const WeatherDashboard = () => {
     try {
       const response_ip = await axios.get('https://api.ipify.org?format=json');
       const ip = response_ip.data['ip']
-      const location_response = await axios.get(`http://127.0.0.1:3001/api/v1/weathers/location?ip=` + ip);
-      const response = await axios.get(`http://127.0.0.1:3001/api/v1/weathers?location=` + location_response.data);
+      const location_response = await axios.get(`https://weather-api-app-ruby-ca24058ecac9.herokuapp.com/api/v1/weathers/location?ip=` + ip);
+      const response = await axios.get(`https://weather-api-app-ruby-ca24058ecac9.herokuapp.com/api/v1/weathers?location=` + location_response.data);
       setLocation(location_response.data)
       setWeather(response.data);
       setHistories(null)
@@ -38,7 +37,7 @@ const WeatherDashboard = () => {
   const forecastWeatherData = async () => {
     try {
       const quantity = weather.forecast_weathers.length
-      const response = await axios.get(`http://127.0.0.1:3001/api/v1/weathers/forecast?location=` + location + '&quantity='+quantity);
+      const response = await axios.get(`https://weather-api-app-ruby-ca24058ecac9.herokuapp.com/api/v1/weathers/forecast?location=` + location + '&quantity='+quantity);
       
       const newList = [...weather.forecast_weathers, ...response.data ]
       setWeather({ ...weather, forecast_weathers: newList });
@@ -49,7 +48,7 @@ const WeatherDashboard = () => {
 
   const fetchHistory = async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:3001/api/v1/weathers/history?location=` + location);
+      const response = await axios.get(`https://weather-api-app-ruby-ca24058ecac9.herokuapp.com/api/v1/weathers/history?location=` + location);
       console.log(response.data)
       setHistories(response.data)
     } catch (error) {
@@ -220,10 +219,8 @@ const WeatherDashboard = () => {
                 </div>
               </div>
             )}
-            
           </div>
         )}
-        
       </div>
     </div>
   );
