@@ -15,6 +15,7 @@ const WeatherDashboard = () => {
       // console.log(`https://weather-api-app-ruby-ca24058ecac9.herokuapp.com/api/v1/weathers?location=` + location)
       const response = await axios.get(`http://127.0.0.1:3001/api/v1/weathers?location=` + location);
       setWeather(response.data);
+      setHistories(null)
     } catch (error) {
       window.alert(error.response.data.error)
     }
