@@ -1,0 +1,127 @@
+$primary-color: #5372ef;
+$secondary-color: #6c757e;
+$box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1), 0px 0px 6px 0px rgba(0, 0, 0, 0.09),
+  0px 0px 8px 0px rgba(0, 0, 0, 0.05), 0px 0px 9px 0px rgba(0, 0, 0, 0.01), 0px 0px 10px 0px rgba(0, 0, 0, 0);
+$border-radius: 10px;
+.app {
+  width: 100%;
+  min-height: 800px;
+  background-color: #d7eaff;
+}
+
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
+%column {
+  display: flex;
+  flex-direction: column;
+}
+%row {
+  display: flex;
+  flex-direction: row;
+}
+.nav {
+  width: 100%;
+  height: 60px;
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  font-weight: bold;
+  color: white;
+}
+.container {
+  width: 100%;
+  @extend %row;
+  &--search {
+    @extend %column;
+    width: 30%;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100%;
+
+    &__inputgroup {
+      justify-content: left;
+      width: 100%;
+      color: black;
+    }
+  }
+  &--result {
+    @extend %column;
+    width: 65%;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100%;
+    &__weatherlocation {
+      @extend %row;
+      width: 100%;
+      height: 300px;
+      background-color: $primary-color;
+      box-shadow: $box-shadow;
+      border-radius: $border-radius;
+      padding: 20px;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      &--child {
+        @extend %column;
+        justify-content: center;
+        align-items: left;
+        padding: 20px;
+        width: 40%;
+        height: 100%;
+        gap: 20px;
+        font-size: large;
+      }
+    }
+    &__title {
+      justify-content: left;
+      width: 100%;
+      color: black;
+      font-weight: bold;
+      font-size: large;
+    }
+    &__weather4day {
+      height: 250px;
+      @extend %row;
+      justify-content: space-around;
+      align-items: center;
+      gap: 10px;
+      &--child {
+        width: 200px;
+        height: 100%;
+        padding: 10px;
+        background-color: $secondary-color;
+        box-shadow: $box-shadow;
+        border-radius: $border-radius;
+        @extend %column;
+        justify-content: center;
+        align-items: left;
+        gap: 20px;
+        font-size: medium;
+        color: white;
+      }
+    }
+  }
+}
+
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: $primary-color;
+  cursor: pointer;
+}
+
+html *::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: var(--white);
+}
