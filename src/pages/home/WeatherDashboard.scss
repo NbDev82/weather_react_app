@@ -47,6 +47,8 @@ $border-radius: 10px;
       justify-content: left;
       width: 100%;
       color: black;
+      gap: 10px;
+      @extend %column;
     }
   }
   &--result {
@@ -117,7 +119,7 @@ html *::-webkit-scrollbar {
 
 html *::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: $primary-color;
+  background-color: black;
   cursor: pointer;
 }
 
