@@ -14,8 +14,7 @@ const WeatherDashboard = () => {
   const [weather, setWeather] = useState()
   const [histories, setHistories] = useState()
 
-  // const base_uri = 'https://weather-api-app-ruby-ca24058ecac9.herokuapp.com'
-  const base_uri = 'http://127.0.0.1:3001'
+  const base_uri = 'https://weather-api-app-ruby-ca24058ecac9.herokuapp.com'
 
   const fetchWeatherData = async () => {
     try {
